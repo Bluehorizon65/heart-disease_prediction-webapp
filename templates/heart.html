@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='heart.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Heart Disease Prediction</h1>
+        <h1 class="description">
+            Description
+        </h1>
+        <p>- age: Age of the patient in years</p>
+        <p>- sex: Male/Female (1-male, 0-female)</p>
+        <p>- cp: Chest pain type (0-3) [typical angina, atypical angina, non-anginal, asymptomatic]</p>
+        <p>- restecg: Resting electrocardiographic results (0-2)</p>
+        <p>- exang: Exercise-induced angina (1 = yes, 0 = no)</p>
+        <p>- slope: The slope of the peak exercise ST segment (0-2)</p>
+        <p>- ca: Number of major vessels (0-3) colored by fluoroscopy</p>
+        <p>- thal: Thalassemia (0-3) [0 = normal, 1 = fixed defect, 2 = reversible defect]</p>
+
+        <form method="post">
+            <label for="sex">Sex (1 = male, 0 = female):</label>
+            <input type="number" id="sex" name="sex" required><br>
+
+            <label for="cp">Chest Pain Type (0-3):</label>
+            <input type="number" id="cp" name="cp" required><br>
+
+            <label for="restecg">Resting ECG (0-2):</label>
+            <input type="number" id="restecg" name="restecg" required><br>
+
+            <label for="exang">Exercise Induced Angina (1 = yes, 0 = no):</label>
+            <input type="number" id="exang" name="exang" required><br>
+
+            <label for="slope">Slope of the Peak Exercise ST Segment (0-2):</label>
+            <input type="number" id="slope" name="slope" required><br>
+
+            <label for="ca">Number of Major Vessels (0-3):</label>
+            <input type="number" id="ca" name="ca" required><br>
+
+            <label for="thal">Thalassemia (0-3):</label>
+            <input type="number" id="thal" name="thal" required><br>
+
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction is not none %}
+            <h2>Prediction: {{ prediction }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
